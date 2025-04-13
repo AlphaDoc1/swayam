@@ -80,7 +80,7 @@ export default function ChatWidget() {
   };
 
   const handleClearChat = () => {
-    setMessages([{ sender: 'bot', text: 'Hi! How can I help you with Swayam 2024?' }]);
+    setMessages([{ sender: 'bot', text: 'Hi! How can I help you with Swayam 2025?' }]);
   };
 
   return (
