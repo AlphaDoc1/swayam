@@ -21,7 +21,7 @@ export default function ChatWidget() {
   }, [messages]);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => !prev);
     setIsMinimized(false);
   };
 
@@ -87,16 +87,22 @@ export default function ChatWidget() {
     <div className="fixed bottom-4 right-4 z-50">
       {/* Chat Icon */}
       <div
-        className={`w-16 h-16 rounded-full bg-gradient-to-br from-[#C96C1D] to-[#8B3A00] flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 ${
+        className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#C96C1D] to-[#8B3A00] flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 ${
           isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
         onClick={handleToggle}
         role="button"
         aria-label="Open chat"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            handleToggle();
+          }
+        }}
       >
         <svg 
-          width="28" 
-          height="28" 
+          width="24" 
+          height="24" 
           viewBox="0 0 24 24" 
           fill="none"
           stroke="#FBEAD3"
@@ -109,26 +115,26 @@ export default function ChatWidget() {
       </div>
 
       {/* Chat Window */}
-      <div className={`w-96 ${isMinimized ? 'h-16' : 'h-[600px]'} bg-[#EFE7DE] rounded-xl shadow-2xl flex flex-col transform transition-all duration-300 ${
+      <div className={`w-[90vw] md:w-96 ${isMinimized ? 'h-16' : 'h-[70vh] md:h-[600px]'} bg-[#EFE7DE] rounded-xl shadow-2xl flex flex-col transform transition-all duration-300 ${
         isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
       }`} style={{ 
         position: 'fixed', 
-        bottom: '5rem', 
+        bottom: '1rem', 
         right: '1rem',
         background: 'radial-gradient(circle at center, #FBEAD3 0%, #C96C1D 50%, #8B3A00 100%)'
       }}>
         {/* Chat Header */}
-        <div className="bg-gradient-to-r from-[#C96C1D] to-[#8B3A00] px-6 py-4 rounded-t-xl flex items-center justify-between">
-          <h3 className="text-[#FBEAD3] text-xl font-semibold">Swayam Assistant</h3>
+        <div className="bg-gradient-to-r from-[#C96C1D] to-[#8B3A00] px-4 md:px-6 py-3 md:py-4 rounded-t-xl flex items-center justify-between">
+          <h3 className="text-[#FBEAD3] text-lg md:text-xl font-semibold">Swayam Assistant</h3>
           <div className="flex gap-2">
             <button 
               onClick={handleMinimize}
-              className="p-2 rounded-full hover:bg-[#FBEAD3]/10 transition-colors duration-200"
+              className="p-1 md:p-2 rounded-full hover:bg-[#FBEAD3]/10 transition-colors duration-200"
               aria-label="Minimize chat"
             >
               <svg 
-                width="20" 
-                height="20" 
+                width="18" 
+                height="18" 
                 viewBox="0 0 24 24" 
                 fill="none"
                 stroke="#FBEAD3"
@@ -141,12 +147,12 @@ export default function ChatWidget() {
             </button>
             <button 
               onClick={handleToggle}
-              className="p-2 rounded-full hover:bg-[#FBEAD3]/10 transition-colors duration-200"
+              className="p-1 md:p-2 rounded-full hover:bg-[#FBEAD3]/10 transition-colors duration-200"
               aria-label="Close chat"
             >
               <svg 
-                width="20" 
-                height="20" 
+                width="18" 
+                height="18" 
                 viewBox="0 0 24 24" 
                 fill="none"
                 stroke="#FBEAD3"
@@ -163,13 +169,13 @@ export default function ChatWidget() {
         {!isMinimized && (
           <>
             {/* Chat Messages */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-3">
+            <div className="flex-1 p-3 md:p-4 overflow-y-auto space-y-3">
               {messages.map((msg, index) => (
                 <div
                   key={index}
-                  className={`max-w-[80%] p-3 rounded-lg ${
+                  className={`max-w-[80%] p-2 md:p-3 rounded-lg ${
                     msg.sender === 'user'
-                      ? 'bg-gradient-to-br from-[#FFA500] to-[#FFD700] text-black ml-auto'
+                      ? 'bg-gradient-to-br from-[#FFDAB9] to-[#FFE5B4] text-black ml-auto'
                       : 'bg-gray-100 text-black'
                   }`}
                 >
@@ -190,7 +196,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-[#8B3A00]">
+            <div className="p-3 md:p-4 border-t border-[#8B3A00]">
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -198,16 +204,16 @@ export default function ChatWidget() {
                   onChange={(e) => setUserInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border border-[#8B3A00] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C96C1D] focus:border-transparent text-[#FBEAD3] bg-[#8B3A00]/50"
+                  className="flex-1 px-3 py-1.5 md:px-4 md:py-2 border border-[#8B3A00] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C96C1D] focus:border-transparent text-[#FBEAD3] bg-[#8B3A00]/50"
                 />
                 <button
                   onClick={handleSend}
-                  className="p-3 bg-gradient-to-br from-[#C96C1D] to-[#8B3A00] text-[#FBEAD3] rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  className="p-2 md:p-3 bg-gradient-to-br from-[#C96C1D] to-[#8B3A00] text-[#FBEAD3] rounded-lg hover:opacity-90 transition-opacity duration-200"
                   aria-label="Send message"
                 >
                   <svg 
-                    width="20" 
-                    height="20" 
+                    width="18" 
+                    height="18" 
                     viewBox="0 0 24 24" 
                     fill="none"
                     stroke="currentColor"
