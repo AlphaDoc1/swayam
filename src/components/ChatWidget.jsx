@@ -6,7 +6,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hi! How can I help you with Swayam 2024?' }
+    { sender: 'bot', text: 'Hi! How can I help you with Swayam 2025?' }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -116,7 +116,7 @@ export default function ChatWidget() {
 
       {/* Chat Window */}
       <div className={`w-[90vw] md:w-96 ${isMinimized ? 'h-16' : 'h-[70vh] md:h-[600px]'} bg-[#EFE7DE] rounded-xl shadow-2xl flex flex-col transform transition-all duration-300 ${
-        isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
+        isOpen ? 'scale-100 opacity-100 pointer-events-auto' : 'scale-95 opacity-0 pointer-events-none'
       }`} style={{ 
         position: 'fixed', 
         bottom: '1rem', 
