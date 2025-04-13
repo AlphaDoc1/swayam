@@ -11,23 +11,29 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='w-screen relative flex flex-row items-center justify-between md:px-14 px-4 py-4 z-10'>
+    <nav className='w-screen relative flex flex-row items-center justify-between md:px-14 px-4 py-4 z-10 bg-[#EFE7DE]'>
       <Link href='/'>
-        <img
+        <Image
           src='/images/mvj-logo.png'
-          className=' h-8 md:h-20 object-fit hover:scale-105 transition duration-200 '
+          alt='MVJ Logo'
+          width={140}
+          height={70}
+          className='h-10 md:h-20 w-auto object-contain hover:scale-105 transition duration-200'
         />
       </Link>
       <Link href='/'>
-        <img
-          src='/images/swayam-logo.svg'
-          className='h-8 md:h-14 object-fit -ml-5 md:ml-0 hover:scale-105 transition duration-200 '
+        <Image
+          src='/images/swayam-logo.png'
+          alt='Swayam Logo'
+          width={140}
+          height={60}
+          className='h-10 md:h-20 w-auto object-contain -ml-4 md:ml-0 hover:scale-105 transition duration-200'
         />
       </Link>
-      <div className='hidden md:flex flex-row items-center justify-evenly gap-6 text-md font-satoshi text-[#D6D6D6]'>
+      <div className='hidden md:flex flex-row items-center justify-evenly gap-6 text-md font-satoshi text-[#3C1E00]'>
         <Link
           href='#'
-          className='transition hover:text-rose-300 hover:scale-105 duration-300'
+          className='transition hover:text-[#8B0000] hover:scale-105 duration-300'
         >
           Home
         </Link>

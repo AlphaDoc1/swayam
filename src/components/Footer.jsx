@@ -3,8 +3,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='w-full flex flex-col items-start bg-black rounded-t-md px-8 md:px-24 pt-10 pb-5 bg-opacity-25'>
-      <div className='w-full flex flex-col gap-4 md:flex-row justify-between font-satoshi'>
+    <div className='w-full flex flex-col items-start bg-[#D2691E] rounded-t-md px-8 md:px-24 pt-10 pb-5'>
+      <div className='w-full flex flex-col gap-4 md:flex-row justify-between font-satoshi text-[#3C1E00]'>
         <div className='flex flex-col justify-start items-start gap-1 basis-1/3'>
           <img
             src='/images/mvj-logo.png'
@@ -30,8 +30,8 @@ const Footer = () => {
           </Link>
         </div>
         <div className='flex flex-col justify-start items-start gap-1 basis-1/3'>
-          <p className='text-gray-300 font-bold text-lg max-w-64'>Contact</p>
-          <p className='text-gray-300 text-sm font-light'>
+          <p className='font-bold text-lg max-w-64'>Contact</p>
+          <p className='text-sm font-light'>
             Phone: 080-4299-1022
           </p>
         </div>

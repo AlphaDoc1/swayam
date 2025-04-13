@@ -3,27 +3,85 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0 !important; /* Force black */
+  --background-start-rgb: 201, 108, 29; /* #C96C1D */
+  --background-end-rgb: 249, 188, 131; /* #F9BC83 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0 !important; /* Force black */
+    --background-start-rgb: 201, 108, 29; /* #C96C1D */
+    --background-end-rgb: 249, 188, 131; /* #F9BC83 */
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb)) !important; /* Force black */
+  background: 
+    radial-gradient(
+      circle at center,
+      #FBEAD3 0%,
+      #C96C1D 50%,
+      #8B3A00 100%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  background-blend-mode: overlay, multiply, multiply;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  overflow: auto;
+}
+
+/* Primary Headings */
+h1 {
+  color: #000000 !important; /* Force black */
+}
+
+/* Section Headers */
+h2 {
+  color: #000000 !important; /* Force black */
+}
+
+/* Highlight Titles */
+.highlight-title {
+  color: #000000 !important; /* Force black */
+}
+
+/* Cards and Sections */
+.card, section {
+  background-color: #EFE7DE; /* Pale Beige */
+}
+
+/* Contact Details */
+.contact-info {
+  color: #000000 !important; /* Force black */
+}
+
+/* Buttons and CTAs */
+button, .cta {
+  background-color: #8B0000; /* Deep Red */
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: #D2691E; /* Dark Orange */
+  color: white;
 }
 
 @layer utilities {
@@ -331,4 +389,9 @@ body {
   100% {
     background-position: 200% 50%;
   }
+}
+
+/* Specific class for the description text */
+.description-text {
+  color: #000000 !important; /* Force black */
 }

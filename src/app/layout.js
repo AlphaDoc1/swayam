@@ -33,20 +33,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body
-        className={`${inter.variable} ${mirthaDisplay.variable} ${satoshi.variable} ${chamisty.variable} overflow-x-hidden`}
-      >
+      <body className={`${inter.variable} ${mirthaDisplay.variable} ${satoshi.variable} ${chamisty.variable} overflow-x-hidden`}>
         <Navbar />
-        {children}
-        <Footer />
-        <div className='bg-image'></div>
-        <div className='bg-gradient'></div>
-        <div className='light-container'>
-          <div className='blurred-lighting top-left'></div>
-          <div className='blurred-lighting top-right'></div>
-          <div className='blurred-lighting bottom-left'></div>
-          <div className='blurred-lighting bottom-right'></div>
+        <div className="min-h-screen">
+          {children}
         </div>
+        <Footer />
       </body>
     </html>
   );
