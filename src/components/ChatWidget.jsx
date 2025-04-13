@@ -88,7 +88,7 @@ export default function ChatWidget() {
       {/* Chat Icon */}
       <div
         className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#C96C1D] to-[#8B3A00] flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 ${
-          isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          isOpen ? 'hidden' : 'block'
         }`}
         onClick={handleToggle}
         role="button"
