@@ -26,7 +26,7 @@ export default function ChatWidget() {
   };
 
   const handleMinimize = () => {
-    setIsMinimized(true);
+    setIsMinimized(prev => !prev);
   };
 
   const handleSend = async () => {
